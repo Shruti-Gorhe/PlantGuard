@@ -1,0 +1,99 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 80 23% 98%;
+    --foreground: 110 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 110 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 110 15% 15%;
+
+    --primary: 100 30% 50%;
+    --primary-foreground: 100 10% 98%;
+
+    --secondary: 60 40% 96%;
+    --secondary-foreground: 100 30% 25%;
+
+    --muted: 80 5% 92%;
+    --muted-foreground: 100 10% 40%;
+
+    --accent: 60 40% 92%;
+    --accent-foreground: 100 30% 25%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 80 10% 90%;
+    --input: 80 10% 90%;
+    --ring: 100 30% 50%;
+
+    --radius: 1rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased overflow-x-hidden;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-medium tracking-tight;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/40 backdrop-blur-md border border-white/20 shadow-sm;
+  }
+  
+  .glass-card {
+    @apply glass rounded-2xl transition-all duration-300 hover:shadow-md hover:bg-white/50;
+  }
+
+  .btn-primary {
+    @apply bg-leaf-500 text-white hover:bg-leaf-600 transition-colors rounded-lg px-6 py-2.5 font-medium shadow-sm;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors rounded-lg px-6 py-2.5 font-medium;
+  }
+
+  .input-field {
+    @apply rounded-lg border border-border bg-white/50 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-200;
+  }
+
+  .nav-link {
+    @apply relative text-foreground/80 hover:text-foreground transition-colors duration-200 px-2 py-1;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300 ease-in-out;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .nav-link.active {
+    @apply text-primary font-medium;
+  }
+
+  .nav-link.active::after {
+    @apply w-full;
+  }
+}
